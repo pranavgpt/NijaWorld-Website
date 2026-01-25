@@ -1,63 +1,184 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export function Footer() {
+    const [email, setEmail] = useState('');
+
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+        // Handle newsletter subscription
+        console.log('Subscribe:', email);
+    };
+
     return (
-        <footer className="bg-baseDark text-gray-400 py-16 border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <footer className="relative bg-[#1a1a1a] text-gray-400 overflow-hidden">
+            {/* Rhombus Shapes Watermark - Left Side */}
+            <div className="absolute left-0 bottom-1/2 opacity-5 pointer-events-none">
+                {/* First Rhombus */}
+                <div className="w-64 h-64 bg-gray-500 transform rotate-45 -translate-x-40"></div>
+            </div>
+            <div className="absolute left-0 bottom-1 opacity-5 pointer-events-none">
+                {/* Second Rhombus */}
+                <div className="w-64 h-96 bg-gray-500 transform rotate-45 -translate-x-125"></div>
+            </div>
 
-                    {/* Brand */}
+            {/* NIJA Logo Watermark - Bottom Right */}
+            <div className="absolute bottom-8 right-8 opacity-5 pointer-events-none">
+                <img
+                    src="/nija-logo.png"
+                    alt="NIJA Watermark"
+                    className="w-80 h-auto"
+                />
+            </div>
+
+            {/* Newsletter Section */}
+            <div className="relative z-10 border-b border-gray-800">
+                <div className="max-w-7xl mx-auto px-6 py-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[#242424] rounded-xl px-8 py-6">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 flex items-center justify-center">
+                                <svg className="w-10 h-10 text-nijaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-white font-semibold text-lg">Subscribe now to get</h3>
+                                <p className="text-white font-semibold text-lg">latest updates</p>
+                            </div>
+                        </div>
+                        <form onSubmit={handleSubscribe} className="flex gap-2 w-full md:w-auto">
+                            <input
+                                type="email"
+                                placeholder="Email Address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="flex-1 md:w-80 bg-transparent border-b border-gray-600 px-4 py-2 text-white placeholder-gray-500 focus:border-nijaGreen outline-none transition"
+                            />
+                            <button
+                                type="submit"
+                                className="p-2 text-white hover:text-nijaGreen transition transform rotate-90"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Footer Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+                <div className="grid md:grid-cols-3 gap-12 mb-12">
+
+                    {/* Left: Logo and Social Media */}
                     <div>
-                        <h3 className="text-nijaGreen font-bold text-2xl mb-4">NIJA</h3>
-                        <p className="text-sm leading-relaxed">
-                            Enterprise-grade AI and blockchain solutions for modern organisations.
-                        </p>
+                        <Link to='/' className='flex items-center gap-3 mb-6 hover:opacity-90 transition group'>
+                            <img
+                                src='/nija-logo.png'
+                                alt='NIJA Logo'
+                                className='h-12 w-auto'
+                            />
+                            <div className='flex flex-col'>
+                                <span className='text-3xl font-bold text-nijaGreen leading-none'>
+                                    NIJA
+                                </span>
+                                <span className='text-xs font-bold text-nijaGreen tracking-wide'>
+                                    WORLD
+                                </span>
+                            </div>
+                        </Link>
+
+                        {/* Social Media Icons */}
+                        <div className="flex gap-4">
+                            <a href="#" className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-nijaGreen transition">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-nijaGreen transition">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-nijaGreen transition">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-nijaGreen transition">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
 
-                    {/* Solutions */}
+                    {/* Middle: Explore Links */}
                     <div>
-                        <h4 className="text-white font-semibold mb-4">Solutions</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><Link to="/solutions" className="hover:text-nijaGreen transition">Supply Chain</Link></li>
-                            <li><Link to="/solutions" className="hover:text-nijaGreen transition">Healthcare</Link></li>
-                            <li><Link to="/solutions" className="hover:text-nijaGreen transition">Financial Services</Link></li>
-                            <li><Link to="/solutions" className="hover:text-nijaGreen transition">Energy & Utilities</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Company */}
-                    <div>
-                        <h4 className="text-white font-semibold mb-4">Company</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><Link to="/about" className="hover:text-nijaGreen transition">About Us</Link></li>
-                            <li><Link to="/technologies" className="hover:text-nijaGreen transition">Technologies</Link></li>
-                            <li><Link to="/contact" className="hover:text-nijaGreen transition">Case Studies</Link></li>
+                        <h4 className="text-white font-semibold text-lg mb-6">Explore</h4>
+                        <ul className="space-y-3">
+                            <li><Link to="/about" className="hover:text-nijaGreen transition">About Company</Link></li>
+                            <li><Link to="/about" className="hover:text-nijaGreen transition">Meet the Team</Link></li>
+                            <li><Link to="/media" className="hover:text-nijaGreen transition">News & Media</Link></li>
                             <li><Link to="/contact" className="hover:text-nijaGreen transition">Contact</Link></li>
                         </ul>
                     </div>
 
-                    {/* Legal */}
+                    {/* Right: Contact Information */}
                     <div>
-                        <h4 className="text-white font-semibold mb-4">Legal</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="hover:text-nijaGreen transition">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-nijaGreen transition">Terms of Service</a></li>
-                            <li><a href="#" className="hover:text-nijaGreen transition">Security</a></li>
-                            <li><a href="#" className="hover:text-nijaGreen transition">Compliance</a></li>
-                        </ul>
+                        <h4 className="text-white font-semibold text-lg mb-6">Contact</h4>
+                        <div className="space-y-4">
+                            <p className="text-sm leading-relaxed">
+                                #B/37, "Pernakuti", 1st Cross, Siddhivinayaka Layout, BSK 3rd Stage, 3rd Phase Bangalore - 560 085
+                            </p>
+                            <div className="flex items-center gap-2">
+                                <svg className="w-4 h-4 text-nijaGreen" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                                <a href="mailto:reach@nija.world" className="hover:text-nijaPurple transition">reach@nija.world</a>
+                            </div>
+                            <div className="space-y-2">
+                                <div className="flex items-center gap-2">
+                                    <svg className="w-4 h-4 text-nijaGreen" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                    </svg>
+                                    <a href="tel:+919845038481" className="hover:text-nijaPurple transition">+91 98450 38481</a>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <svg className="w-4 h-4 text-nijaGreen" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                    </svg>
+                                    <a href="tel:+919845226516" className="hover:text-nijaPurple transition">+91 98452 26516</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-                    <p>© 2026 NIJA. All rights reserved.</p>
-                    <div className="flex gap-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-nijaGreen transition">LinkedIn</a>
-                        <a href="#" className="hover:text-nijaGreen transition">Twitter</a>
-                        <a href="#" className="hover:text-nijaGreen transition">GitHub</a>
-                    </div>
+                {/* Company Description */}
+                <div className="border-t border-gray-800 pt-8 mb-8">
+                    <p className="text-center text-sm text-gray-500 max-w-4xl mx-auto">
+                        Nija Venture Impacts is a Distributed Economy ( Nija Model ) Venture, creating wealth and shared value with all stakeholders.
+                    </p>
+                </div>
+
+                {/* Copyright */}
+                <div className="text-center">
+                    <p className="text-sm text-gray-600">© Copyright 2026 by nija.world</p>
                 </div>
             </div>
+
+            {/* Scroll to Top Button */}
+            <button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="fixed bottom-8 right-8 bg-nijaGreen hover:bg-green-500 text-white p-3 rounded-full shadow-lg transition z-50"
+            >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+            </button>
         </footer>
     );
 }

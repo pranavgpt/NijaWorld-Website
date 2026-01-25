@@ -23,20 +23,24 @@ export function Navbar() {
                     </div>
                 </Link>
 
-                <div className='hidden md:flex gap-8 items-center text-gray-700 dark:text-gray-300'>
+                {/* Navigation Links */}
+                <div className='hidden lg:flex gap-5 items-center text-sm text-gray-700 dark:text-gray-300'>
                     <Link to='/about' className='hover:text-nijaGreen transition'>About</Link>
                     <Link to='/technologies' className='hover:text-nijaGreen transition'>Technologies</Link>
                     <Link to='/solutions' className='hover:text-nijaGreen transition'>Solutions</Link>
-                    <Link to='/contact' className='hover:text-nijaGreen transition'>Case Studies</Link>
+                    <Link to='/case-studies' className='hover:text-nijaGreen transition'>Case Studies</Link>
+                    <Link to='/insights' className='hover:text-nijaGreen transition'>Insights</Link>
+                    <Link to='/media' className='hover:text-nijaGreen transition'>Media</Link>
+                    <Link to='/partners' className='hover:text-nijaGreen transition'>Partners</Link>
+                    <Link to='/contact' className='hover:text-nijaGreen transition'>Contact</Link>
                 </div>
 
-                <div className='flex gap-4 items-center'>
-                    <Link to='/join'>
-                        <button className='border-2 border-nijaPurple text-nijaPurple px-5 py-2.5 rounded-lg font-medium transition hover:bg-nijaPurple/10 hover:shadow-lg hover:shadow-nijaPurple/30'>
-                            Join
-                        </button>
-                    </Link>
-                    <button className='bg-nijaGreen hover:bg-green-500 text-white px-5 py-2.5 rounded-lg font-medium transition shadow-lg shadow-nijaGreen/30'>
+                {/* CTA Buttons */}
+                <div className='flex gap-3 items-center'>
+                    <button className='hidden md:block border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-gray-100 dark:hover:bg-gray-800'>
+                        Download Overview
+                    </button>
+                    <button className='bg-nijaGreen hover:bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-nijaGreen/30'>
                         Request a Demo
                     </button>
                     <ThemeToggle />

@@ -1,21 +1,17 @@
 import { motion } from 'framer-motion';
+import { InteractiveDotGrid } from './InteractiveDotGrid';
 
 export function Hero() {
     return (
-        <section className="pt-32 pb-28 bg-gradient-to-br from-[#0B0F14] via-[#101826] to-[#0B0F14] text-white dark:from-[#0B0F14] dark:via-[#101826] dark:to-[#0B0F14]">
-            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 items-center">
+        <section className="relative pt-32 pb-28 text-white overflow-hidden">
+            {/* Interactive Dot Grid Background */}
+            <InteractiveDotGrid />
+
+            {/* Content Layer */}
+            <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6 items-center pointer-events-none">
 
                 {/* Left Content */}
                 <div>
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-block mb-4 px-4 py-1.5 text-sm rounded-full bg-white/10 backdrop-blur-sm text-nijaPurple font-medium border border-nijaPurple/20"
-                    >
-                        ENTERPRISE READY • Production AI & Blockchain
-                    </motion.span>
-
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -40,10 +36,10 @@ export function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mt-8 flex gap-4 flex-wrap"
+                        className="mt-8 flex gap-4 flex-wrap pointer-events-auto"
                     >
                         <button className="bg-nijaGreen hover:bg-green-500 transition text-white px-6 py-3 rounded-lg font-medium shadow-lg shadow-nijaGreen/30 hover:shadow-nijaGreen/50 hover:scale-105 transform">
-                            Request a Demo →
+                            Join →
                         </button>
                         <button className="border border-white/20 hover:border-white hover:bg-white/10 transition px-6 py-3 rounded-lg backdrop-blur-sm">
                             View Case Studies
@@ -56,7 +52,7 @@ export function Hero() {
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
-                    className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-lg hover:bg-white/10 transition"
+                    className="pointer-events-auto bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-lg hover:bg-white/10 transition"
                 >
                     <div className="flex justify-between text-xs text-gray-400 mb-6">
                         <span className="font-mono">SYSTEM ARCHITECTURE v2.4</span>
