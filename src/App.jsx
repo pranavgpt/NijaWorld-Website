@@ -9,6 +9,8 @@ import CybersecurityPage from './pages/CybersecurityPage';
 import SolutionsPage from './pages/SolutionsPage';
 import CaseStudies from './pages/CaseStudies';
 import Insights from './pages/Insights';
+import Media from './pages/Media';
+import Partners from './pages/Partners';
 import Contact from './pages/Contact';
 import Join from './pages/Join';
 import Signup from './pages/Signup';
@@ -31,6 +33,10 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/join' element={<Join />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/insights' element={<Insights />} />
+        <Route path='/media' element={<Media />} />
+        <Route path='/partners' element={<Partners />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </AnimatePresence>
   );
