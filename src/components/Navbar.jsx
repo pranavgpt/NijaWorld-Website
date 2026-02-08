@@ -21,21 +21,25 @@ export function Navbar() {
     return (
         <nav className='fixed w-full bg-white/80 dark:bg-baseDark/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-50'>
             <div className='max-w-7xl mx-auto px-6 py-4 flex justify-between items-center'>
-                <Link to='/' className='flex items-center gap-3 hover:opacity-90 transition group z-50 relative'>
+                <Link to='/' className='flex items-center gap-0 hover:opacity-90 transition group z-50 relative'>
                     {/* NIJA Logo Icon */}
                     <img
                         src='/nija-logo.png'
                         alt='NIJA Logo'
                         className='h-8 w-auto'
                     />
-                    {/* NIJA WORLD Text */}
-                    <div className='flex flex-col'>
-                        <span className='text-2xl font-bold text-nijaPurple dark:text-nijaGreen leading-none'>
-                            NIJA
-                        </span>
-                        <span className='text-[8.5px] font-bold text-nijaPurple dark:text-nijaGreen -mt-1 tracking-wide'>
-                            WORLD
-                        </span>
+                    {/* NIJA WORLD Logo Image - Purple for light theme, Green for dark theme */}
+                    <div className='h-8 flex items-center overflow-hidden'>
+                        <img
+                            src='/nija-world-purple.png'
+                            alt='NIJA WORLD'
+                            className='h-14 w-auto max-w-none block dark:hidden'
+                        />
+                        <img
+                            src='/nija-world-green.png'
+                            alt='NIJA WORLD'
+                            className='h-14 w-auto max-w-none hidden dark:block'
+                        />
                     </div>
                 </Link>
 
