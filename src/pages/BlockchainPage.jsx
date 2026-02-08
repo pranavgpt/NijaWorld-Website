@@ -137,7 +137,7 @@ export default function BlockchainPage() {
 
                                         <Link
                                             to={tech.link}
-                                            className="w-full py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-medium group-hover:bg-nijaPurple group-hover:text-white group-hover:border-transparent transition-all duration-200 relative z-10 flex items-center justify-center gap-2 group/btn"
+                                            className="w-full py-3 rounded-lg border border-nijaPurple/20 bg-nijaPurple/5 text-nijaPurple font-medium transition-all duration-200 relative z-10 flex items-center justify-center gap-2 shadow-lg shadow-nijaPurple/5 hover:shadow-nijaPurple/30 hover:bg-nijaPurple hover:text-white hover:border-transparent hover:scale-[1.02]"
                                         >
                                             <span className="relative">
                                                 Explore {tech.name}

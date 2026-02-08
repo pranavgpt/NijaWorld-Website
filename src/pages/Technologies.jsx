@@ -117,9 +117,13 @@ export default function Technologies() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                                className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-8 hover:border-b-nijaGreen dark:hover:border-b-nijaGreen hover:shadow-2xl hover:shadow-nijaGreen/10 transition-all duration-200 flex flex-col h-full relative overflow-hidden"
+                                className={`group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-8 hover:shadow-2xl transition-all duration-200 flex flex-col h-full relative overflow-hidden ${idx === 1
+                                        ? 'hover:border-b-nijaPurple dark:hover:border-b-nijaPurple hover:shadow-nijaPurple/10'
+                                        : 'hover:border-b-nijaGreen dark:hover:border-b-nijaGreen hover:shadow-nijaGreen/10'
+                                    }`}
                             >
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-nijaGreen/5 rounded-full blur-3xl -mr-16 -mt-16 transition-opacity opacity-0 group-hover:opacity-100" />
+                                <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl -mr-16 -mt-16 transition-opacity opacity-0 group-hover:opacity-100 ${idx === 1 ? 'bg-nijaPurple/5' : 'bg-nijaGreen/5'
+                                    }`} />
 
                                 {pillar.image && (
                                     <div className="mb-6 -mx-8 -mt-8 h-48 relative overflow-hidden rounded-t-xl group-hover:h-52 transition-all duration-300">
@@ -132,7 +136,8 @@ export default function Technologies() {
                                     </div>
                                 )}
 
-                                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white relative z-10 group-hover:text-nijaGreen transition-colors">
+                                <h3 className={`text-xl font-bold mb-3 text-gray-900 dark:text-white relative z-10 transition-colors ${idx === 1 ? 'group-hover:text-nijaPurple' : 'group-hover:text-nijaGreen'
+                                    }`}>
                                     {pillar.title}
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400 mb-6 font-medium relative z-10">
@@ -146,7 +151,8 @@ export default function Technologies() {
                                     <ul className="space-y-3">
                                         {pillar.capabilities.map((cap, cIdx) => (
                                             <li key={cIdx} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-nijaGreen flex-shrink-0" />
+                                                <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${idx === 1 ? 'bg-nijaPurple' : 'bg-nijaGreen'
+                                                    }`} />
                                                 <span>{cap}</span>
                                             </li>
                                         ))}
@@ -155,7 +161,10 @@ export default function Technologies() {
 
                                 <button
                                     onClick={() => pillar.link && navigate(pillar.link)}
-                                    className="w-full py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-medium group-hover:bg-nijaGreen group-hover:text-white group-hover:border-transparent transition-all duration-200 relative z-10 flex items-center justify-center gap-2 group/btn"
+                                    className={`w-full py-3 rounded-lg border font-medium transition-all duration-200 relative z-10 flex items-center justify-center gap-2 group/btn hover:scale-[1.02] hover:text-white hover:border-transparent ${idx === 1
+                                        ? 'border-nijaPurple/20 bg-nijaPurple/5 text-nijaPurple shadow-lg shadow-nijaPurple/5 hover:shadow-nijaPurple/30 hover:bg-nijaPurple'
+                                        : 'border-nijaGreen/20 bg-nijaGreen/5 text-nijaGreen shadow-lg shadow-nijaGreen/5 hover:shadow-nijaGreen/30 hover:bg-nijaGreen'
+                                        }`}
                                 >
                                     <span className="relative">
                                         {pillar.cta}

@@ -137,7 +137,7 @@ export default function CybersecurityPage() {
 
                                         <Link
                                             to={cap.link}
-                                            className="w-full py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-medium group-hover:bg-nijaGreen group-hover:text-white group-hover:border-transparent transition-all duration-200 relative z-10 flex items-center justify-center gap-2 group/btn"
+                                            className="w-full py-3 rounded-lg border border-nijaGreen/20 bg-nijaGreen/5 text-nijaGreen font-medium transition-all duration-200 relative z-10 flex items-center justify-center gap-2 shadow-lg shadow-nijaGreen/5 hover:shadow-nijaGreen/30 hover:bg-nijaGreen hover:text-white hover:border-transparent hover:scale-[1.02]"
                                         >
                                             <span className="relative">
                                                 Explore {cap.name}
