@@ -17,6 +17,7 @@ import BlockchainPage from './pages/BlockchainPage';
 import CaseStudies from './pages/CaseStudies';
 import CaseStudyPrivateCredit from './pages/CaseStudyPrivateCredit';
 import CaseStudyRealEstate from './pages/CaseStudyRealEstate';
+import DigitalAdvisoryPage from './pages/DigitalAdvisoryPage';
 import Contact from './pages/Contact';
 import CybersecurityPage from './pages/CybersecurityPage';
 import EcosystemPage from './pages/EcosystemPage';
@@ -26,15 +27,19 @@ import SmaCGPage from './pages/SmaCGPage';
 import TokeniZPage from './pages/TokeniZPage';
 import DAVProPage from './pages/DAVProPage';
 import Home from './pages/Home';
+import IdentityPage from './pages/IdentityPage';
 import Insights from './pages/Insights';
 import Join from './pages/Join';
+import LoyaltyPage from './pages/LoyaltyPage';
 import Media from './pages/Media';
 import Partners from './pages/Partners';
 import RWALiquidityPage from './pages/RWALiquidityPage';
 import Signup from './pages/Signup';
 import SolutionsPage from './pages/SolutionsPage';
+import SupplyChainPage from './pages/SupplyChainPage';
 import SupplyChainTraceabilityArticle from './pages/SupplyChainTraceabilityArticle';
 import Technologies from './pages/Technologies';
+import TokenisationPage from './pages/TokenisationPage';
 import TokenisedLoyaltyArticle from './pages/TokenisedLoyaltyArticle';
 import VerifiableIdentityArticle from './pages/VerifiableIdentityArticle';
 import Blogs from './pages/Blogs';
@@ -63,6 +68,11 @@ function App() {
         <Route path='/technologies/cybersecurity/policy-compliance' element={<PolicyCompliancePage />} />
         <Route path='/technologies/cybersecurity/incident-response' element={<IncidentResponsePage />} />
         <Route path='/solutions' element={<SolutionsPage />} />
+        <Route path='/solutions/tokenisation' element={<TokenisationPage />} />
+        <Route path='/solutions/supply-chain' element={<SupplyChainPage />} />
+        <Route path='/solutions/identity' element={<IdentityPage />} />
+        <Route path='/solutions/loyalty' element={<LoyaltyPage />} />
+        <Route path='/solutions/advisory' element={<DigitalAdvisoryPage />} />
         <Route path='/ecosystem' element={<EcosystemPage />} />
         <Route path='/ecosystem/nija-wallet' element={<NijaWalletPage />} />
         <Route path='/ecosystem/nija-diia' element={<NijaDiiAPage />} />
