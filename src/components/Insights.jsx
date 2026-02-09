@@ -77,7 +77,7 @@ export function Insights() {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-white/50 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col"
+                        className="bg-white/50 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col hover:border-nijaGreen dark:hover:border-nijaGreen hover:border-2 hover:shadow-2xl hover:shadow-nijaGreen/20 transition-all duration-300 card-glow-green"
                     >
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-nijaGreen"></span>
@@ -118,7 +118,7 @@ export function Insights() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white/50 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col"
+                        className="bg-white/50 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col hover:border-nijaGreen dark:hover:border-nijaGreen hover:border-2 hover:shadow-2xl hover:shadow-nijaGreen/20 transition-all duration-300 card-glow-green"
                     >
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-nijaGreen"></span>
