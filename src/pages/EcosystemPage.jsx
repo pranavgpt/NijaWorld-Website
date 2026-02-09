@@ -340,15 +340,40 @@ function FlipCard({ item, idx }) {
                     }}
                 >
                     <div className={`w-full h-full rounded-[14px] p-8 ${item.isCustomLogo || item.isSmacG || item.isDavPro || item.isTokeniZ || item.isNijaDiiA ? 'bg-white' : 'bg-white dark:bg-gray-900'} overflow-hidden relative h-full flex flex-col items-center justify-center`}>
-                        {/* Universal Background Pattern */}
-                        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        {/* Universal Background Pattern - Animated 3D Wave Dots */}
+                        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.5]">
                                 <defs>
-                                    <pattern id={`grid-${idx}`} width="20" height="20" patternUnits="userSpaceOnUse">
-                                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                                    <style>
+                                        {`
+                                            @keyframes waveDot {
+                                                0%, 100% { transform: scale(0.6); opacity: 0.3; }
+                                                50% { transform: scale(1.4); opacity: 0.8; }
+                                            }
+                                            .wave-dot-${idx} { animation: waveDot 3s ease-in-out infinite; }
+                                            .wave-dot-${idx}:nth-child(odd) { animation-delay: 0.5s; }
+                                        `}
+                                    </style>
+                                    <pattern id={`wave-dots-${idx}`} width="24" height="24" patternUnits="userSpaceOnUse">
+                                        <circle className={`wave-dot-${idx}`} cx="6" cy="6" r="1.5" fill="#1EB980">
+                                            <animate attributeName="r" values="1;2;1" dur="2s" repeatCount="indefinite" begin="0s" />
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" begin="0s" />
+                                        </circle>
+                                        <circle className={`wave-dot-${idx}`} cx="18" cy="6" r="1.5" fill="#7C3AED">
+                                            <animate attributeName="r" values="1;2;1" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                                        </circle>
+                                        <circle className={`wave-dot-${idx}`} cx="6" cy="18" r="1.5" fill="#7C3AED">
+                                            <animate attributeName="r" values="1;2;1" dur="2s" repeatCount="indefinite" begin="1s" />
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" begin="1s" />
+                                        </circle>
+                                        <circle className={`wave-dot-${idx}`} cx="18" cy="18" r="1.5" fill="#1EB980">
+                                            <animate attributeName="r" values="1;2;1" dur="2s" repeatCount="indefinite" begin="1.5s" />
+                                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" begin="1.5s" />
+                                        </circle>
                                     </pattern>
                                 </defs>
-                                <rect width="100%" height="100%" fill={`url(#grid-${idx})`} />
+                                <rect width="100%" height="100%" fill={`url(#wave-dots-${idx})`} />
                             </svg>
                         </div>
 
